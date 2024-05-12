@@ -7,7 +7,7 @@ import Link from "next/link";
 const BlogPreview = (props: BlogPreviewProps) => {
     return (
         <div className="flex flex-col gap-4 py-4 rounded-md">
-            <div className="w-full h-40 relative rounded-md overflow-hidden">
+            <div className="w-full aspect-video relative rounded-md overflow-hidden">
                 <Image src={props.src} alt={props.alt} fill priority />
             </div>
             <div className="line-clamp-3">
