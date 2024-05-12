@@ -13,7 +13,7 @@ const ThemeContext = createContext<ThemeProps>(null);
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const [theme, setTheme] = useState(() => {
-        if (typeof localStorage !== undefined)
+        if (typeof localStorage !== "undefined")
             return localStorage.getItem("blog-theme")
                 ? (localStorage.getItem("blog-theme") as string)
                 : "forest";
