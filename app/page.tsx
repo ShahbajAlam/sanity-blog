@@ -4,6 +4,7 @@ import fetchBlogs from "@/utils/fetchBlogs";
 import Pagination from "@/components/Pagination";
 import BlogPreview from "@/components/BlogPreview";
 import SearchBlogs from "@/components/SearchBlogs";
+import fetchBlogsCount from "@/utils/fetchBlogsCount";
 
 export default async function Home({
     searchParams,
@@ -15,7 +16,7 @@ export default async function Home({
     const page = Number(searchParams?.page) || 1;
 
     const data: BlogProps[] = await fetchBlogs(page);
-    const count: number = data.length;
+    const count: number = await fetchBlogsCount();
 
     return (
         <>
