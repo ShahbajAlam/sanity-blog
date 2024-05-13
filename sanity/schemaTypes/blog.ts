@@ -32,6 +32,12 @@ export default {
         {
           type: 'block',
         },
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        },
       ],
     },
   ],

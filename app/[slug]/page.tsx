@@ -2,8 +2,17 @@ import Image from "next/image";
 import urlFor from "@/utils/imageBuilder";
 import { PortableText } from "next-sanity";
 import { BlogProps } from "@/types/types";
-import fetchBlogBySlug from "@/utils/fetchBlogBySlug";
 import Author from "@/components/Author";
+import fetchBlogBySlug from "@/utils/fetchBlogBySlug";
+import { PortableTextComponents } from "@portabletext/react";
+
+const ImageComponents: PortableTextComponents = {
+    types: {
+        image: ({ value }) => (
+            <img src={urlFor(value.asset._ref).url()} className="skeleton" />
+        ),
+    },
+};
 
 export default async function Blog({ params }: { params: { slug: string } }) {
     const data: BlogProps = await fetchBlogBySlug(params.slug);
@@ -35,10 +44,14 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                         alt={data.slug}
                         fill
                         priority
+                        className="skeleton"
                     />
                 </div>
                 <div className="prose">
-                    <PortableText value={data.content} />
+                    <PortableText
+                        value={data.content}
+                        components={ImageComponents}
+                    />
                 </div>
             </div>
 
