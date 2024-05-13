@@ -5,6 +5,6 @@ const builder = imageUrlBuilder({
     projectId: "m1y4zy75",
 });
 
-const urlFor = (source: string) => builder.image(source);
+const urlFor = (source: string) => builder.image(source).crop("center");
 
 export default urlFor;

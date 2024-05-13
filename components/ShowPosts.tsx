@@ -21,6 +21,7 @@ const ShowPosts = () => {
                     alt={blog.slug}
                     content={blog.content}
                     slug={blog.slug}
+                    title={blog.title}
                     src={urlFor(blog.img).url()}
                 />
             ))}

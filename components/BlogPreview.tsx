@@ -9,7 +9,8 @@ const BlogPreview = (props: BlogPreviewProps) => {
             <div className="w-full aspect-video relative rounded-md overflow-hidden">
                 <Image src={props.src} alt={props.alt} fill priority />
             </div>
-            <div className="line-clamp-3">
+            <h2 className="text-xl font-semibold">{props.title}</h2>
+            <div className="line-clamp-3 text-gray-300">
                 <PortableText value={props.content} />
             </div>
             <Link

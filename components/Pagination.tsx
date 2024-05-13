@@ -10,11 +10,11 @@ const Pagination = () => {
     const lastPage = Math.ceil(totalBlogs / BLOGS_PER_PAGE);
 
     return (
-        <div className="w-full flex justify-center">
-            <div className="join rounded-md flex gap-4">
+        <div className="w-full flex justify-center my-3">
+            <div className="join rounded-md">
                 <button
                     onClick={data?.decreasePage}
-                    className="join-item btn"
+                    className="join-item btn px-6"
                     disabled={data?.pageNumber === 1}
                 >
                     «
@@ -24,7 +24,7 @@ const Pagination = () => {
                 </button>
                 <button
                     onClick={data?.increasePage}
-                    className="join-item btn"
+                    className="join-item btn px-6"
                     disabled={data?.pageNumber === lastPage}
                 >
                     »

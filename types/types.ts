@@ -32,4 +32,5 @@ export type BlogPreviewProps = {
     alt: string;
     content: any;
     slug: string;
+    title: string;
 };
