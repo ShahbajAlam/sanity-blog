@@ -13,11 +13,11 @@ export async function GET(req: NextRequest) {
         _createdAt, _id, _updatedAt, title,
         "slug" : slug.current, content,
         "img" : image.asset._ref
-      }`;
+      } | order(_createdAt desc)`;
     }
 
     if (page && !title) {
-        query = `*[_type == "blog"][${(page - 1) * 2}...${page * 2}]{
+        query = `*[_type == "blog"] | order(_createdAt desc) [${(page - 1) * 2}...${page * 2}]{
         _createdAt, _id, _updatedAt, title,
         "slug" : slug.current, content,
         "img" : image.asset._ref
@@ -29,18 +29,26 @@ export async function GET(req: NextRequest) {
         _createdAt, _id, _updatedAt, title,
         "slug" : slug.current, content,
         "img" : image.asset._ref
-      }`;
+      } | order(_createdAt desc)`;
     }
 
     if (page && title) {
-        query = `*[_type == "blog" && title match "${title}"][${(page - 1) * 2}...${page * 2}]{
+        query = `*[_type == "blog" && title match "${title}"] | order(_createdAt desc) [${(page - 1) * 2}...${page * 2}]{
         _createdAt, _id, _updatedAt, title,
         "slug" : slug.current, content,
         "img" : image.asset._ref
       }`;
     }
 
-    const data: BlogProps[] = await client.fetch(query);
+    const data: BlogProps[] = await client.fetch(
+        query,
+        {},
+        {
+            next: {
+                revalidate: 0,
+            },
+        }
+    );
     const count = await client.fetch(`count(*[_type == "blog"])`);
     return NextResponse.json({ data, count });
 }

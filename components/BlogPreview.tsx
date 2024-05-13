@@ -12,8 +12,11 @@ const BlogPreview = (props: BlogPreviewProps) => {
             <div className="line-clamp-3">
                 <PortableText value={props.content} />
             </div>
-            <Link href={props.slug} className="btn btn-accent rounded-md">
-                Read this blog
+            <Link
+                href={props.slug}
+                className="btn btn-accent rounded-md text-[1rem]"
+            >
+                READ THIS BLOG
             </Link>
         </div>
     );

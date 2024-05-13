@@ -13,8 +13,8 @@ const SearchBlogs = () => {
         e.preventDefault();
         if (!text) return;
         data?.setText(text);
-        setText("");
         data?.setPageNumber(1);
+        setText("");
     };
 
     return (
@@ -25,12 +25,15 @@ const SearchBlogs = () => {
             <input
                 type="text"
                 value={text}
-                placeholder="Search Blogs..."
+                placeholder="Search by title..."
                 onChange={(e) => setText(e.target.value)}
                 className="input input-bordered w-full rounded-md"
             />
-            <button type="submit" className="btn btn-accent rounded-md">
-                Search
+            <button
+                type="submit"
+                className="btn btn-accent rounded-md text-[1rem]"
+            >
+                SEARCH
             </button>
         </form>
     );

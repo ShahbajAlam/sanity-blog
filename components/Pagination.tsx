@@ -11,7 +11,7 @@ const Pagination = () => {
 
     return (
         <div className="w-full flex justify-center">
-            <div className="join rounded-md">
+            <div className="join rounded-md flex gap-4">
                 <button
                     onClick={data?.decreasePage}
                     className="join-item btn"
@@ -19,7 +19,7 @@ const Pagination = () => {
                 >
                     «
                 </button>
-                <button className="join-item btn">
+                <button className="join-item btn text-lg">
                     Page {data?.pageNumber}
                 </button>
                 <button
