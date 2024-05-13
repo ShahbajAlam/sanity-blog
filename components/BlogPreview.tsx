@@ -1,8 +1,7 @@
-import { PortableText } from "@portabletext/react";
-
-import Image from "next/image";
-import { BlogPreviewProps } from "@/types/types";
 import Link from "next/link";
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import { BlogPreviewProps } from "@/types/types";
 
 const BlogPreview = (props: BlogPreviewProps) => {
     return (
@@ -14,7 +13,7 @@ const BlogPreview = (props: BlogPreviewProps) => {
                 <PortableText value={props.content} />
             </div>
             <Link href={props.slug} className="btn btn-accent rounded-md">
-                Read More
+                Read this blog
             </Link>
         </div>
     );

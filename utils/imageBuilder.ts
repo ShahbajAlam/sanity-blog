@@ -2,7 +2,7 @@ import imageUrlBuilder from "@sanity/image-url";
 
 const builder = imageUrlBuilder({
     dataset: "production",
-    projectId: process.env.PROJECT_ID as string,
+    projectId: "m1y4zy75",
 });
 
 const urlFor = (source: string) => builder.image(source);

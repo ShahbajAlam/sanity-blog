@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type BlogProps = {
     _id: string;
     _createdAt: string;
@@ -7,6 +9,18 @@ export type BlogProps = {
     title: string;
     content: any;
 };
+
+export type PostProps = {
+    pageNumber: number;
+    setPageNumber: any;
+    loading: boolean;
+    blogs: BlogProps[];
+    setText: any;
+    increasePage: any;
+    decreasePage: any;
+    count: number;
+    text: string;
+} | null;
 
 export type ThemeProps = {
     theme: string;

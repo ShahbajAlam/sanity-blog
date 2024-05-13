@@ -1,24 +1,34 @@
-import Link from "next/link";
+"use client";
 
-const Pagination = ({ page, count }: { page: number; count: number }) => {
-    const lastPage = Math.ceil(count / 10);
+import { BLOGS_PER_PAGE, usePosts } from "./PostContext";
+
+const Pagination = () => {
+    const data = usePosts();
+    if (data?.loading) return;
+
+    const totalBlogs = data?.count as number;
+    const lastPage = Math.ceil(totalBlogs / BLOGS_PER_PAGE);
 
     return (
         <div className="w-full flex justify-center">
-            <div className="join">
-                <Link
-                    href={`/?page=${page > 1 ? page - 1 : 1}`}
-                    className={`join-item btn ${page === 1 ? "cursor-not-allowed" : ""}`}
+            <div className="join rounded-md">
+                <button
+                    onClick={data?.decreasePage}
+                    className="join-item btn"
+                    disabled={data?.pageNumber === 1}
                 >
                     «
-                </Link>
-                <button className="join-item btn">Page {page}</button>
-                <Link
-                    href={`/?page=${page < lastPage ? page + 1 : lastPage}`}
-                    className={`join-item btn ${page === lastPage ? "cursor-not-allowed" : ""}`}
+                </button>
+                <button className="join-item btn">
+                    Page {data?.pageNumber}
+                </button>
+                <button
+                    onClick={data?.increasePage}
+                    className="join-item btn"
+                    disabled={data?.pageNumber === lastPage}
                 >
                     »
-                </Link>
+                </button>
             </div>
         </div>
     );
