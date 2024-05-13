@@ -20,6 +20,9 @@ export default {
       name: 'image',
       type: 'image',
       title: 'Title image',
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: 'content',

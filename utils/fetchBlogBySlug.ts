@@ -7,6 +7,6 @@ export default async function fetchBlogBySlug(slug: string) {
     "slug" : slug.current, content,
     "img" : image.asset._ref
     }`;
-    const data = await client.fetch(query);
+    const data = await client.fetch(query, {}, { next: { revalidate: 0 } });
     return data;
 }
