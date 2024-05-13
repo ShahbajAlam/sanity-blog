@@ -12,6 +12,7 @@ const BlogPreview = (props: BlogPreviewProps) => {
                     alt={props.alt}
                     fill
                     priority
+                    className="skeleton"
                 />
             </div>
             <h2 className="text-xl font-semibold">{props.title}</h2>
