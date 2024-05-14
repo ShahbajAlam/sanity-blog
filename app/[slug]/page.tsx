@@ -20,7 +20,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
 
     return (
         <>
-            <div className="px-6 py-4">
+            <div className="px-6 py-4 md:w-[70%] md:mx-auto lg:max-w-[900px]">
                 <h1 className="text-3xl font-bold text-center my-4">
                     {data.title}
                 </h1>
@@ -38,7 +38,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                     </a>
                 </p>
                 <p>Posted on - {postedOn}</p>
-                <div className="w-full aspect-video relative rounded-md overflow-hidden my-6">
+                <div className="w-full aspect-video relative rounded-md overflow-hidden my-6 lg:w-[60%] lg:mx-auto">
                     <Image
                         src={urlFor(data.img).url()}
                         alt={data.slug}
@@ -55,9 +55,9 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                 </div>
             </div>
 
-            <div className="px-6 divider divider-accent" />
+            <div className="px-6 divider divider-accent md:w-[70%] md:mx-auto" />
 
-            <div className="px-6 py-4">
+            <div className="px-6 py-4 md:w-[70%] md:mx-auto">
                 <Author />
             </div>
         </>

@@ -9,7 +9,7 @@ import {
     useState,
 } from "react";
 
-export const BLOGS_PER_PAGE = 5;
+export const BLOGS_PER_PAGE = 10;
 const PostContext = createContext<PostProps>(null);
 
 const PostProvider = ({ children }: { children: ReactNode }) => {

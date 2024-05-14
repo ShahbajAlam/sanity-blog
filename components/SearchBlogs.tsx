@@ -19,7 +19,7 @@ const SearchBlogs = () => {
 
     return (
         <form
-            className="flex gap-3 justify-between items-center px-6 py-4"
+            className="flex gap-3 justify-between items-center px-6 py-4 md:w-[70%] md:mx-auto lg:max-w-[900px]"
             onSubmit={handleSearch}
         >
             <input

@@ -7,7 +7,7 @@ import ToggleThemeButton from "./ToggleThemeButton";
 const Navbar = () => {
     const data = usePosts();
     return (
-        <nav className="flex justify-between items-center px-6 py-4">
+        <nav className="flex justify-between items-center px-6 py-4 md:w-[70%] md:mx-auto md:py-6 lg:max-w-[900px] lg:py-4">
             <Link
                 href="/"
                 onClick={() => {

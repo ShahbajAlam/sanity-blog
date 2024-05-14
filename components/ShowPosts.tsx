@@ -15,16 +15,18 @@ const ShowPosts = () => {
 
     return (
         <>
-            {data?.blogs.map((blog) => (
-                <BlogPreview
-                    key={blog._id}
-                    alt={blog.slug}
-                    content={blog.content}
-                    slug={blog.slug}
-                    title={blog.title}
-                    src={urlFor(blog.img).url()}
-                />
-            ))}
+            <div className="px-6 py-4 grid gap-4 grid-cols-1 md:w-[70%] md:mx-auto lg:grid-cols-2 lg:max-w-[900px]">
+                {data?.blogs.map((blog) => (
+                    <BlogPreview
+                        key={blog._id}
+                        alt={blog.slug}
+                        content={blog.content}
+                        slug={blog.slug}
+                        title={blog.title}
+                        src={urlFor(blog.img).url()}
+                    />
+                ))}
+            </div>
             {!text && count > BLOGS_PER_PAGE && <Pagination />}
         </>
     );

@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
     }
 
     if (page && !title) {
-        query = `*[_type == "blog"] | order(_createdAt desc) [${(page - 1) * 5}...${page * 5}]{
+        query = `*[_type == "blog"] | order(_createdAt desc) [${(page - 1) * 10}...${page * 10}]{
         _createdAt, _id, _updatedAt, title,
         "slug" : slug.current, content,
         "img" : image.asset._ref
@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
     }
 
     if (page && title) {
-        query = `*[_type == "blog" && title match "${title}"] | order(_createdAt desc) [${(page - 1) * 5}...${page * 5}]{
+        query = `*[_type == "blog" && title match "${title}"] | order(_createdAt desc) [${(page - 1) * 10}...${page * 10}]{
         _createdAt, _id, _updatedAt, title,
         "slug" : slug.current, content,
         "img" : image.asset._ref
@@ -49,6 +49,10 @@ export async function GET(req: NextRequest) {
             },
         }
     );
-    const count = await client.fetch(`count(*[_type == "blog"])`);
+    const count = await client.fetch(
+        `count(*[_type == "blog"])`,
+        {},
+        { next: { revalidate: 0 } }
+    );
     return NextResponse.json({ data, count });
 }
