@@ -5,7 +5,7 @@ import { BlogPreviewProps } from "@/types/types";
 
 const BlogPreview = (props: BlogPreviewProps) => {
     return (
-        <div className="flex flex-col gap-4 py-4 rounded-md">
+        <div className="flex flex-col justify-between gap-4 py-4 rounded-md">
             <div className="w-full aspect-video relative rounded-md overflow-hidden">
                 <Image
                     src={props.src}
@@ -15,7 +15,7 @@ const BlogPreview = (props: BlogPreviewProps) => {
                     className="skeleton"
                 />
             </div>
-            <h2 className="text-xl font-semibold">{props.title}</h2>
+            <h2 className="text-xl font-semibold line-clamp-2">{props.title}</h2>
             <div className="line-clamp-3 text-gray-300">
                 <PortableText value={props.content} />
             </div>

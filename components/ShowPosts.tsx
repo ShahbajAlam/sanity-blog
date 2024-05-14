@@ -13,6 +13,15 @@ const ShowPosts = () => {
     const text = data?.text;
     const count = data?.count as number;
 
+    if (data?.blogs.length === 0)
+        return (
+            <div className="px-6 py-4 md:w-[70%] md:mx-auto lg:grid-cols-2 lg:max-w-[900px]">
+                <h1 className="font-bold text-center text-3xl my-10">
+                    No blogs found &#128533;
+                </h1>
+            </div>
+        );
+
     return (
         <>
             <div className="px-6 py-4 grid gap-4 grid-cols-1 md:w-[70%] md:mx-auto lg:grid-cols-2 lg:max-w-[900px]">
