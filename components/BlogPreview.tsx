@@ -15,8 +15,10 @@ const BlogPreview = (props: BlogPreviewProps) => {
                     className="skeleton"
                 />
             </div>
-            <h2 className="text-xl font-semibold line-clamp-2">{props.title}</h2>
-            <div className="line-clamp-3 text-gray-300">
+            <h2 className="text-xl font-semibold line-clamp-2">
+                {props.title}
+            </h2>
+            <div className="line-clamp-3 opacity-70">
                 <PortableText value={props.content} />
             </div>
             <Link

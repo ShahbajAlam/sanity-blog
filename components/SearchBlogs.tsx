@@ -25,7 +25,7 @@ const SearchBlogs = () => {
             <input
                 type="text"
                 value={text}
-                placeholder="Search by title..."
+                placeholder="Search by title or content..."
                 onChange={(e) => setText(e.target.value)}
                 className="input input-bordered w-full rounded-md"
             />
