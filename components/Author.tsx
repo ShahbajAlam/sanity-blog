@@ -21,14 +21,6 @@ const Author = () => {
                 development. Happy Coding{" "}
                 <span className="animate-pulse">&#128525;</span>
             </p>
-            <div className="mt-4 flex justify-center items-center gap-2">
-                <p>{coded} with</p>
-                <img
-                    title="Sanity.io"
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sanity/sanity-original.svg"
-                    className="w-5 h-5 animate-pulse"
-                />
-            </div>
         </>
     );
 };
