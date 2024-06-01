@@ -1,4 +1,5 @@
 import Image from "next/image";
+import client from "@/utils/client";
 import urlFor from "@/utils/imageBuilder";
 import { PortableText } from "next-sanity";
 import { BlogProps } from "@/types/types";
@@ -13,6 +14,22 @@ const ImageComponents: PortableTextComponents = {
         ),
     },
 };
+
+export async function generateStaticParams() {
+    const query = `*[_type == "blog"]{_createdAt, _id, _updatedAt, title,
+    "slug" : slug.current, content,
+    "img" : image.asset._ref
+    }`;
+    const data = (await client.fetch(
+        query,
+        {},
+        { next: { revalidate: 0 } }
+    )) as BlogProps[];
+
+    return data.map((i) => ({
+        slug: i.slug,
+    }));
+}
 
 export default async function Blog({ params }: { params: { slug: string } }) {
     const data: BlogProps = await fetchBlogBySlug(params.slug);
