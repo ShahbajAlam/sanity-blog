@@ -6,11 +6,22 @@ import { BlogProps } from "@/types/types";
 import Author from "@/components/Author";
 import fetchBlogBySlug from "@/utils/fetchBlogBySlug";
 import { PortableTextComponents } from "@portabletext/react";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { darcula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const ImageComponents: PortableTextComponents = {
     types: {
         image: ({ value }) => (
             <img src={urlFor(value.asset._ref).url()} className="skeleton" />
+        ),
+        code: (props) => (
+            <SyntaxHighlighter
+                language={props.value.language}
+                style={darcula}
+                wrapLongLines
+            >
+                {props.value.code}
+            </SyntaxHighlighter>
         ),
     },
 };
