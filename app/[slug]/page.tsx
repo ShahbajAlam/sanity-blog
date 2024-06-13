@@ -56,7 +56,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                 <div className="divider divider-accent" />
 
                 <p>
-                    Post by -{" "}
+                    Posted by -{" "}
                     <a
                         href="https://shahbajalam-portfolio.vercel.app/"
                         target="_blank"

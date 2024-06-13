@@ -31,7 +31,7 @@ const SearchBlogs = () => {
             />
             <button
                 type="submit"
-                className="btn btn-accent rounded-md text-[1rem]"
+                className="btn btn-accent rounded-md text-[1rem] active:hover:scale-[0.99] active:focus:scale-[0.99]"
             >
                 SEARCH
             </button>

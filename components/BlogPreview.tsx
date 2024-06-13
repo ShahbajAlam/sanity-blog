@@ -23,7 +23,7 @@ const BlogPreview = (props: BlogPreviewProps) => {
             </div>
             <Link
                 href={props.slug}
-                className="btn btn-accent rounded-md text-[1rem]"
+                className="btn btn-accent rounded-md text-[1rem] active:hover:scale-[0.99] active:focus:scale-[0.99]"
             >
                 READ THIS BLOG
             </Link>
